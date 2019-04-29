@@ -14,7 +14,6 @@ object AnalysisIP {
     * @param ip
     * @param ipRuleArray
     */
-
   def getRegionInfoByIP(ip: String, ipRuleArray: Array[IPRule]) = {
     val regionInfo = RegionInfo()
     //1,将ip转换成数字
@@ -23,7 +22,7 @@ object AnalysisIP {
     var index = binarySearch(numIP, ipRuleArray)
     //3，将地域信息封装到RegionInfo对象中
     if (index != -1) {
-      var ipRule = ipRuleArray(index)
+      val ipRule = ipRuleArray(index)
       regionInfo.country = ipRule.country
       regionInfo.province = ipRule.province
       regionInfo.city = ipRule.city
@@ -38,7 +37,6 @@ object AnalysisIP {
     * @param numIP
     * @param ipRuleArray
     */
-
   def binarySearch(numIP: Long, ipRuleArray: Array[IPRule]) = {
     var index = -1
     var min = 0
