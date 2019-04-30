@@ -49,17 +49,17 @@ object JdbcHelper {
       //创建sql语句对象
       preparedStatement = connection.prepareStatement(sql)
       //给sql语句参数进行赋值
-      for (i <- 0 until(sqlParams.length)){
+      for (i <- 0 until (sqlParams.length)){
         preparedStatement.setObject(i + 1,sqlParams(i))
       }
       //执行sql语句
       preparedStatement.executeUpdate()
     } catch {
-case e: SQLException => e.printStackTrace()
+      case e: SQLException => e.printStackTrace()
     }finally {
-      if (preparedStatement !=null)
+      if (preparedStatement != null)
         preparedStatement.close()
-      if (connection !=null)
+      if (connection != null)
         connection.close()
     }
   }
